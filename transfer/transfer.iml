@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$" dumb="true">
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/controller" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/dto" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/entity" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/exception" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/handler" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/repository" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/service" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/validator" />
+    </content>
+  </component>
+</module>

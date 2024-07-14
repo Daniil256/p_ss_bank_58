@@ -2,14 +2,19 @@
 <module version="4">
   <component name="AdditionalModuleElements">
     <content url="file://$MODULE_DIR$" dumb="true">
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/controller" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/dto" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/entity" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/exception" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/handler" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/repository" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/service" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/bank/transfer/validator" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
     </content>
+  </component>
+  <component name="FacetManager">
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="Hibernate" />
+        <datasource-mapping>
+          <factory-entry name="entityManagerFactory" value="d2d1fe0c-1b32-413c-88db-f06a7eba9460" />
+        </datasource-mapping>
+        <naming-strategy-map />
+      </configuration>
+    </facet>
   </component>
 </module>

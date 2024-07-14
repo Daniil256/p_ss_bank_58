@@ -28,16 +28,16 @@
             <column autoIncrement="true" name="id" remarks="технический идентификатор" type="int8">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="audit_pkey"/>
             </column>
-            <column name="entity_type" remarks="тип сущности" type="VARCHAR(40)">
+            <column name="entity_type" remarks="тип сущности" type="varchar(40)">
                 <constraints nullable="false"/>
             </column>
-            <column name="operation_type" remarks="тип операции" type="VARCHAR(255)">
+            <column name="operation_type" remarks="тип операции" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="created_by" remarks="кто создал" type="VARCHAR(255)">
+            <column name="created_by" remarks="кто создал" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="modified_by" remarks="кто изменил" type="VARCHAR(255)">
+            <column name="modified_by" remarks="кто изменил" type="varchar(255)">
                 <constraints nullable="true"/>
             </column>
             <column name="created_at" remarks="когда создан" type="timestamp">

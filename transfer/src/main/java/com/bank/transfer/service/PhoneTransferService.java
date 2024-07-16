@@ -1,39 +1,37 @@
 package com.bank.transfer.service;
 
+import com.bank.transfer.dto.PhoneTransferDto;
 import com.bank.transfer.entity.PhoneTransfer;
+import com.bank.transfer.exception.EntityNotFoundException;
+import com.bank.transfer.repository.PhoneTransferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import java.util.List;
-
 @Service
 public class PhoneTransferService implements IPhoneTransferService {
 
-    private final EntityManager em;
+    private final PhoneTransferRepository repository;
 
     @Autowired
-    public PhoneTransferService(EntityManager em) {
-        this.em = em;
+    public PhoneTransferService(PhoneTransferRepository repository) {
+        this.repository = repository;
     }
 
     @Transactional
     @Override
-    public PhoneTransfer getPhoneTransfer(Long id) {
-        return em.createQuery("from PhoneTransfer p where p.id = :id", PhoneTransfer.class)
-                .setParameter("id", id).getSingleResult();
+    public PhoneTransfer savePhoneTransfer(PhoneTransferDto dto) {
+        PhoneTransfer transfer = PhoneTransfer.build(0L, dto.getPhoneNumber(), dto.getAmount(), dto.getPurpose(), dto.getAccountDetailsId());
+        return repository.save(transfer);
     }
 
     @Transactional
     @Override
-    public List<PhoneTransfer> getAllEntitiesPhone() {
-        return em.createQuery("from PhoneTransfer", PhoneTransfer.class).getResultList();
-    }
-
-    @Transactional
-    @Override
-    public void savePhoneTransfer(PhoneTransfer transfer) {
-        em.merge(transfer);
+    public PhoneTransfer editPhoneTransfer(PhoneTransferDto transfer, Long id) throws EntityNotFoundException {
+        if (repository.findById(id).isEmpty()) {
+            throw new EntityNotFoundException(String.format("Phone transfer with id=%s not found", id));
+        } else {
+            return repository.save(PhoneTransfer.build(id, transfer.getPhoneNumber(), transfer.getAmount(), transfer.getPurpose(), transfer.getAccountDetailsId()));
+        }
     }
 }

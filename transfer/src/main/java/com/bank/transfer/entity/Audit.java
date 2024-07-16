@@ -1,16 +1,14 @@
 package com.bank.transfer.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.time.Instant;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor(staticName = "build")
+@NoArgsConstructor
 @Entity
 @Table(name = "audit", schema = "transfer")
 public class Audit {
@@ -20,26 +18,18 @@ public class Audit {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Size(max = 40)
-    @NotNull
     @Column(name = "entity_type", nullable = false, length = 40)
     private String entityType;
 
-    @Size(max = 255)
-    @NotNull
     @Column(name = "operation_type", nullable = false)
     private String operationType;
 
-    @Size(max = 255)
-    @NotNull
     @Column(name = "created_by", nullable = false)
     private String createdBy;
 
-    @Size(max = 255)
     @Column(name = "modified_by")
     private String modifiedBy;
 
-    @NotNull
     @Column(name = "created_at", nullable = false)
     private Instant createdAt;
 
@@ -50,7 +40,6 @@ public class Audit {
     @Type(type = "org.hibernate.type.TextType")
     private String newEntityJson;
 
-    @NotNull
     @Column(name = "entity_json", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
     private String entityJson;

@@ -1,15 +1,15 @@
 package com.bank.transfer.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor(staticName = "build")
+@NoArgsConstructor
 @Entity
 @Table(name = "phone_transfer", schema = "transfer")
 public class PhoneTransfer {

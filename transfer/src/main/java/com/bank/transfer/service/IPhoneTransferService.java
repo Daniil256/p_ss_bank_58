@@ -1,13 +1,11 @@
 package com.bank.transfer.service;
 
+import com.bank.transfer.dto.PhoneTransferDto;
 import com.bank.transfer.entity.PhoneTransfer;
-
-import java.util.List;
+import com.bank.transfer.exception.EntityNotFoundException;
 
 public interface IPhoneTransferService {
-    PhoneTransfer getPhoneTransfer(Long id);
+    PhoneTransfer editPhoneTransfer(PhoneTransferDto transfer, Long id) throws EntityNotFoundException;
 
-    List<PhoneTransfer> getAllEntitiesPhone();
-
-    void savePhoneTransfer(PhoneTransfer transfer);
+    PhoneTransfer savePhoneTransfer(PhoneTransferDto transfer);
 }

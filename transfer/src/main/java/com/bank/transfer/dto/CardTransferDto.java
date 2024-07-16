@@ -10,9 +10,9 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor(staticName = "build")
 @NoArgsConstructor
-public class PhoneTransferDto {
+public class CardTransferDto {
     @NotNull
-    private Long phoneNumber;
+    private Long cardNumber;
 
     @NotNull
     private BigDecimal amount;

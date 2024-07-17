@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class CardTransfer {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "card_transfer_id_gen")
-    @SequenceGenerator(name = "card_transfer_id_gen", sequenceName = "account_transfer_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "card_transfer_id_gen", sequenceName = "card_transfer_id_seq", allocationSize = 1)
     @Column(name = "id", nullable = false)
     private Long id;
 

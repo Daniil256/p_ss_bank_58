@@ -10,7 +10,7 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class AppExceptionHandler {
-
+//ДОБАВИТЬ ОБРАБОТКУ ИСКЛЮЧЕНИЙ УНИКАЛЬНЫХ ЗНАЧЕНИЙ CARD_NUMBER И ACCOUNT_NUMBER
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> invalidArgument(MethodArgumentNotValidException ex) {

@@ -34,4 +34,5 @@ public class AccountTransfer {
     @NotNull
     @Column(name = "account_details_id", nullable = false)
     private Long accountDetailsId;
+
 }

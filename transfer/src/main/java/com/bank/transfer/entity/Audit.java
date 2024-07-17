@@ -43,19 +43,4 @@ public class Audit {
     @Column(name = "entity_json", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
     private String entityJson;
-
-    @Override
-    public String toString() {
-        return "Audit{" +
-                "id=" + id +
-                ", entityType='" + entityType + '\'' +
-                ", operationType='" + operationType + '\'' +
-                ", createdBy='" + createdBy + '\'' +
-                ", modifiedBy='" + modifiedBy + '\'' +
-                ", createdAt=" + createdAt +
-                ", modifiedAt=" + modifiedAt +
-                ", newEntityJson='" + newEntityJson + '\'' +
-                ", entityJson='" + entityJson + '\'' +
-                '}';
-    }
 }

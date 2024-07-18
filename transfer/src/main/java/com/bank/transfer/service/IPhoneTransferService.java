@@ -7,5 +7,5 @@ import com.bank.transfer.exception.SQLTransferException;
 public interface IPhoneTransferService {
     PhoneTransfer editPhoneTransfer(PhoneTransferDto transfer, Long id) throws SQLTransferException;
 
-    PhoneTransfer savePhoneTransfer(PhoneTransferDto transfer);
+    PhoneTransfer savePhoneTransfer(PhoneTransferDto transfer) throws SQLTransferException;
 }

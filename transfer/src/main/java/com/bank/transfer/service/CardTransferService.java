@@ -20,9 +20,14 @@ public class CardTransferService implements ICardTransferService {
 
     @Transactional
     @Override
-    public CardTransfer saveCardTransfer(CardTransferDto dto) {
+    public CardTransfer saveCardTransfer(CardTransferDto dto) throws SQLTransferException {
         CardTransfer transfer = CardTransfer.build(0L, dto.getCardNumber(), dto.getAmount(), dto.getPurpose(), dto.getAccountDetailsId());
-        return repository.save(transfer);
+        if (repository.findByNumber(dto.getCardNumber()) == null) {
+            return repository.save(transfer);
+        } else {
+            throw new SQLTransferException(String.
+                    format("Card transfer с номером %s уже существует", dto.getCardNumber()));
+        }
     }
 
     @Transactional

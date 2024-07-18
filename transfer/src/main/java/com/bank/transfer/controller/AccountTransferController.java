@@ -29,7 +29,7 @@ public class AccountTransferController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<AccountTransfer> addEntityAccount(@RequestBody @Valid AccountTransferDto transfer) {
+    public ResponseEntity<AccountTransfer> addEntityAccount(@RequestBody @Valid AccountTransferDto transfer) throws SQLTransferException {
         return new ResponseEntity<>(service.saveAccountTransfer(transfer), HttpStatus.CREATED);
     }
 }

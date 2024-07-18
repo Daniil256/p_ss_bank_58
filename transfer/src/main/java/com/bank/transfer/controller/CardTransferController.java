@@ -29,7 +29,7 @@ public class CardTransferController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<CardTransfer> addEntityCard(@RequestBody @Valid CardTransferDto transfer) {
+    public ResponseEntity<CardTransfer> addEntityCard(@RequestBody @Valid CardTransferDto transfer) throws SQLTransferException {
         return new ResponseEntity<>(service.saveCardTransfer(transfer), HttpStatus.CREATED);
     }
 }

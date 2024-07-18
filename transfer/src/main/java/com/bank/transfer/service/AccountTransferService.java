@@ -20,9 +20,14 @@ public class AccountTransferService implements IAccountTransferService {
 
     @Transactional
     @Override
-    public AccountTransfer saveAccountTransfer(AccountTransferDto dto) {
+    public AccountTransfer saveAccountTransfer(AccountTransferDto dto) throws SQLTransferException {
         AccountTransfer transfer = AccountTransfer.build(0L, dto.getAccountNumber(), dto.getAmount(), dto.getPurpose(), dto.getAccountDetailsId());
-        return repository.save(transfer);
+        if (repository.findByAccountNumber(dto.getAccountNumber()) == null) {
+            return repository.save(transfer);
+        } else {
+            throw new SQLTransferException(String.
+                    format("Card transfer с номером %s уже существует", dto.getAccountNumber()));
+        }
     }
 
     @Transactional

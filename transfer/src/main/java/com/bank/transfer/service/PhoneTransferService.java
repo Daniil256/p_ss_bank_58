@@ -20,9 +20,14 @@ public class PhoneTransferService implements IPhoneTransferService {
 
     @Transactional
     @Override
-    public PhoneTransfer savePhoneTransfer(PhoneTransferDto dto) {
+    public PhoneTransfer savePhoneTransfer(PhoneTransferDto dto) throws SQLTransferException {
         PhoneTransfer transfer = PhoneTransfer.build(0L, dto.getPhoneNumber(), dto.getAmount(), dto.getPurpose(), dto.getAccountDetailsId());
-        return repository.save(transfer);
+        if (repository.findByNumber(dto.getPhoneNumber()) == null) {
+            return repository.save(transfer);
+        } else {
+            throw new SQLTransferException(String.
+                    format("Card transfer с номером %s уже существует", dto.getPhoneNumber()));
+        }
     }
 
     @Transactional

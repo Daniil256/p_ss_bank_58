@@ -29,7 +29,7 @@ public class PhoneTransferController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<PhoneTransfer> addEntityPhone(@RequestBody @Valid PhoneTransferDto transfer) {
+    public ResponseEntity<PhoneTransfer> addEntityPhone(@RequestBody @Valid PhoneTransferDto transfer) throws SQLTransferException {
         return new ResponseEntity<>(service.savePhoneTransfer(transfer), HttpStatus.CREATED);
     }
 }

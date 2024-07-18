@@ -2,7 +2,7 @@ package com.bank.transfer.service;
 
 import com.bank.transfer.dto.AccountTransferDto;
 import com.bank.transfer.entity.AccountTransfer;
-import com.bank.transfer.exception.EntityNotFoundException;
+import com.bank.transfer.exception.SQLTransferException;
 import com.bank.transfer.repository.AccountTransferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,9 +27,9 @@ public class AccountTransferService implements IAccountTransferService {
 
     @Transactional
     @Override
-    public AccountTransfer editAccountTransfer( AccountTransferDto transfer,Long id) throws EntityNotFoundException {
+    public AccountTransfer editAccountTransfer(AccountTransferDto transfer, Long id) throws SQLTransferException {
         if (repository.findById(id).isEmpty()) {
-            throw new EntityNotFoundException(String.format("Account transfer with id=%s not found", id));
+            throw new SQLTransferException(String.format("Account transfer with id=%s not found", id));
         } else {
             return repository.save(AccountTransfer.build(id, transfer.getAccountNumber(), transfer.getAmount(), transfer.getPurpose(), transfer.getAccountDetailsId()));
         }

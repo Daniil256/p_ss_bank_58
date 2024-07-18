@@ -2,7 +2,7 @@ package com.bank.transfer.service;
 
 import com.bank.transfer.dto.PhoneTransferDto;
 import com.bank.transfer.entity.PhoneTransfer;
-import com.bank.transfer.exception.EntityNotFoundException;
+import com.bank.transfer.exception.SQLTransferException;
 import com.bank.transfer.repository.PhoneTransferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,9 +27,9 @@ public class PhoneTransferService implements IPhoneTransferService {
 
     @Transactional
     @Override
-    public PhoneTransfer editPhoneTransfer(PhoneTransferDto transfer, Long id) throws EntityNotFoundException {
+    public PhoneTransfer editPhoneTransfer(PhoneTransferDto transfer, Long id) throws SQLTransferException {
         if (repository.findById(id).isEmpty()) {
-            throw new EntityNotFoundException(String.format("Phone transfer with id=%s not found", id));
+            throw new SQLTransferException(String.format("Phone transfer with id=%s not found", id));
         } else {
             return repository.save(PhoneTransfer.build(id, transfer.getPhoneNumber(), transfer.getAmount(), transfer.getPurpose(), transfer.getAccountDetailsId()));
         }

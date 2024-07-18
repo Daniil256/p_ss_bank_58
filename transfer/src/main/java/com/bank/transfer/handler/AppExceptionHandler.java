@@ -1,6 +1,6 @@
 package com.bank.transfer.handler;
 
-import com.bank.transfer.exception.EntityNotFoundException;
+import com.bank.transfer.exception.SQLTransferException;
 import liquibase.repackaged.org.apache.commons.collections4.map.HashedMap;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -20,8 +20,8 @@ public class AppExceptionHandler {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler({EntityNotFoundException.class})
-    public Map<String, String> handleBusinessException(EntityNotFoundException ex) {
+    @ExceptionHandler({SQLTransferException.class})
+    public Map<String, String> handleBusinessException(SQLTransferException ex) {
         Map<String, String> errorMap = new HashedMap<>();
         errorMap.put("Error message", ex.getMessage());
         return errorMap;

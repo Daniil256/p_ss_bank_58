@@ -2,7 +2,7 @@ package com.bank.transfer.controller;
 
 import com.bank.transfer.dto.CardTransferDto;
 import com.bank.transfer.entity.CardTransfer;
-import com.bank.transfer.exception.EntityNotFoundException;
+import com.bank.transfer.exception.SQLTransferException;
 import com.bank.transfer.service.CardTransferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ public class CardTransferController {
 
     @PutMapping("/edit")
     public ResponseEntity<CardTransfer> editEntityCard(@RequestBody @Valid CardTransferDto transfer,
-                                                       @RequestParam Long id) throws EntityNotFoundException {
+                                                       @RequestParam Long id) throws SQLTransferException {
         return new ResponseEntity<>(service.editCardTransfer(transfer,id), HttpStatus.CREATED);
     }
 

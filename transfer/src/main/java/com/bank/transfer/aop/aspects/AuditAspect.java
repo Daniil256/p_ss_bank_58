@@ -11,12 +11,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class LoggingAspect {
+public class AuditAspect {
 
     private final AuditService service;
 
     @Autowired
-    public LoggingAspect(AuditService service) {
+    public AuditAspect(AuditService service) {
         this.service = service;
     }
 

@@ -1,0 +1,58 @@
+databaseChangeLog:
+  - changeSet:
+      id: 01
+      author: Daniil
+      changes:
+        - modifyDataType:
+            schemaName: transfer
+            tableName: account_transfer
+            columnName: id
+            newDataType: int
+        - modifyDataType:
+            schemaName: transfer
+            tableName: account_transfer
+            columnName: account_number
+            newDataType: int
+        - modifyDataType:
+            schemaName: transfer
+            tableName: account_transfer
+            columnName: account_details_id
+            newDataType: int
+
+        - modifyDataType:
+            schemaName: transfer
+            tableName: phone_transfer
+            columnName: id
+            newDataType: int
+        - modifyDataType:
+            schemaName: transfer
+            tableName: phone_transfer
+            columnName: phone_number
+            newDataType: int
+        - modifyDataType:
+            schemaName: transfer
+            tableName: phone_transfer
+            columnName: account_details_id
+            newDataType: int
+
+        - modifyDataType:
+            schemaName: transfer
+            tableName: card_transfer
+            columnName: id
+            newDataType: int
+        - modifyDataType:
+            schemaName: transfer
+            tableName: card_transfer
+            columnName: card_number
+            newDataType: int
+        - modifyDataType:
+            schemaName: transfer
+            tableName: card_transfer
+            columnName: account_details_id
+            newDataType: int
+
+        - modifyDataType:
+            schemaName: transfer
+            tableName: audit
+            columnName: id
+            newDataType: int
